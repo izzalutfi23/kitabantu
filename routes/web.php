@@ -17,15 +17,17 @@ use App\Http\Controllers\Relawancontroller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Autenticate User
 Route::get('/login', [Authcontroller::class, 'index'])->name('login');
 Route::post('/postlogin', [Authcontroller::class, 'postlogin']);
 Route::get('/logout', [Authcontroller::class, 'logout']);
 
+Route::get('/', [Relawancontroller::class, 'index']);
+
+Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
+    Route::get('/organisasi', [Organisasicontroller::class, 'index']);
+});
+
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
-    Route::get();
+    Route::get('/admin', [Admincontroller::class, 'index']);
 });

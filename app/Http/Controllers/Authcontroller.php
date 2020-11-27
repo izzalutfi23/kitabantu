@@ -14,12 +14,12 @@ class Authcontroller extends Controller
 
     public function postlogin(Request $request){
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => 'admin'])){
-    		echo "admin";
+    		return redirect('/admin');
     	}else if(Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => 'organisasi'])){
-            echo "organisasi";
+            return redirect('/organisasi');
         }
         else if(Auth::attempt(['username' => $request->username, 'password' => $request->password, 'role' => 'relawan'])){
-            echo "relawan";
+            return redirect('/');
         }
         else{
             return redirect('/login');
