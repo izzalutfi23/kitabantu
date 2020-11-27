@@ -31,6 +31,8 @@ Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi/donasi', [Donasicontroller::class, 'index']);
     Route::get('/organisasi/tambahdonasi', [Donasicontroller::class, 'create']);
     Route::post('/organisasi/postdonasi', [Donasicontroller::class, 'store']);
+    Route::get('/organisasi/editdonasi/{donasimodel}', [Donasicontroller::class, 'edit']);
+    Route::patch('/organisasi/updatedonasi/{donasimodel}', [Donasicontroller::class, 'update']);
 });
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){

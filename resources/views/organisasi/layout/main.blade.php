@@ -100,7 +100,8 @@
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-
+    <!-- Ckeditor -->
+    <script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>
     <!-- plugins:js -->
     <script src="{{asset('admin/vendors/base/vendor.bundle.base.js')}}"></script>
     <!-- endinject -->
@@ -124,7 +125,7 @@
         $(document).ready(function () {
             $('#example').DataTable();
         });
-
+        CKEDITOR.replace( 'keterangan' );
     </script>
 </body>
 

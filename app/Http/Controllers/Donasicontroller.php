@@ -15,7 +15,8 @@ class Donasicontroller extends Controller
      */
     public function index()
     {
-        return view('organisasi.donasi');
+        $donasi = Donasimodel::where('id_user', Auth()->user()->id)->get();
+        return view('organisasi.donasi', ['donasi' => $donasi]);
     }
 
     /**
@@ -79,7 +80,7 @@ class Donasicontroller extends Controller
      */
     public function edit(Donasimodel $donasimodel)
     {
-        //
+        return view('organisasi.editdonasi', ['donasi' => $donasimodel]);
     }
 
     /**
@@ -91,7 +92,35 @@ class Donasicontroller extends Controller
      */
     public function update(Request $request, Donasimodel $donasimodel)
     {
-        //
+        $this->validate($request, [
+            'foto' => 'image|mimes:png,jpg,jpeg',
+            'judul' => 'required',
+            'keterangan' => 'required',
+            'target' => 'required',
+            'batas_waktu' => 'required'
+        ]);
+
+        if($request->hasFile('foto')){
+            $image = $request->file('foto');
+            $image->storeAs('public/donasi', $image->hashName());
+            Donasimodel::where('id', $donasimodel->id)->update([
+                'foto' => $image->hashName(),
+                'judul' => $request->judul,
+                'keterangan' => $request->keterangan,
+                'target' => $request->target,
+                'batas_waktu' => $request->batas_waktu
+            ]);
+            return redirect('/organisasi/donasi')->with('msg', 'Data donasi berhasil diubah!');
+        }
+        else{
+            Donasimodel::where('id', $donasimodel->id)->update([
+                'judul' => $request->judul,
+                'keterangan' => $request->keterangan,
+                'target' => $request->target,
+                'batas_waktu' => $request->batas_waktu
+            ]);
+            return redirect('/organisasi/donasi')->with('msg', 'Data donasi berhasil diubah!');
+        }
     }
 
     /**

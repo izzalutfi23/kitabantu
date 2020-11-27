@@ -53,79 +53,34 @@
                             <table id="example" class="table">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Status report</th>
-                                        <th>Office</th>
-                                        <th>Price</th>
-                                        <th>Date</th>
-                                        <th>Gross amount</th>
+                                        <th>No</th>
+                                        <th>Foto</th>
+                                        <th>Judul</th>
+                                        <th>Keterangan</th>
+                                        <th>Target</th>
+                                        <th>Terkumpul</th>
+                                        <th>Batas Waktu</th>
+                                        <th>Status</th>
+                                        <th>Tindakan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($donasi as $data)
                                     <tr>
-                                        <td>Jeremy Ortega</td>
-                                        <td>Levelled up</td>
-                                        <td>Catalinaborough</td>
-                                        <td>$790</td>
-                                        <td>06 Jan 2018</td>
-                                        <td>$2274253</td>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td><img src="{{Storage::url('public/donasi/'.$data->foto)}}"
+                                                style="border-radius: 2px; height: auto; width: 100px;"></td>
+                                        <td>{{$data->judul}}</td>
+                                        <td>{{substr(strip_tags(htmlspecialchars_decode($data->keterangan)), 0, 10)}}...</td>
+                                        <td>Rp{{number_format($data->target)}}</td>
+                                        <td>Rp0</td>
+                                        <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
+                                        <td><label class="badge badge-danger">{{$data->status}}</label></td>
+                                        <td>
+                                            <a href="{{url('/organisasi/editdonasi/'.$data->id)}}"><label class="badge badge-primary">Edit</i></label></a>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td>Alvin Fisher</td>
-                                        <td>Ui design completed</td>
-                                        <td>East Mayra</td>
-                                        <td>$23230</td>
-                                        <td>18 Jul 2018</td>
-                                        <td>$83127</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Emily Cunningham</td>
-                                        <td>support</td>
-                                        <td>Makennaton</td>
-                                        <td>$939</td>
-                                        <td>16 Jul 2018</td>
-                                        <td>$29177</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Minnie Farmer</td>
-                                        <td>support</td>
-                                        <td>Agustinaborough</td>
-                                        <td>$30</td>
-                                        <td>30 Apr 2018</td>
-                                        <td>$44617</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Betty Hunt</td>
-                                        <td>Ui design not completed</td>
-                                        <td>Lake Sandrafort</td>
-                                        <td>$571</td>
-                                        <td>25 Jun 2018</td>
-                                        <td>$78952</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Myrtie Lambert</td>
-                                        <td>Ui design completed</td>
-                                        <td>Cassinbury</td>
-                                        <td>$36</td>
-                                        <td>05 Nov 2018</td>
-                                        <td>$36422</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Jacob Kennedy</td>
-                                        <td>New project</td>
-                                        <td>Cletaborough</td>
-                                        <td>$314</td>
-                                        <td>12 Jul 2018</td>
-                                        <td>$34167</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ernest Wade</td>
-                                        <td>Levelled up</td>
-                                        <td>West Fidelmouth</td>
-                                        <td>$484</td>
-                                        <td>08 Sep 2018</td>
-                                        <td>$50862</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
