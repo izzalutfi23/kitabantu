@@ -20,6 +20,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tgl_lahir',
+        'alamat',
+        'id_provinsi',
+        'id_kota',
+        'id_kecamatan',
+        'id_kelurahan',
+        'foto',
+        'role'
     ];
 
     /**

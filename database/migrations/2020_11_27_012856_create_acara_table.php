@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateAcaraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('acara', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('username');
-            $table->string('password');
-            $table->date('tgl_lahir');
-            $table->text('alamat');
+            $table->integer('id_user')->unsigned();
+            $table->string('foto');
+            $table->string('judul');
+            $table->string('keterangan', 2000);
+            $table->integer('target')->unsigned();
+            $table->date('batas_waktu');
             $table->integer('id_provinsi')->unsigned();
             $table->integer('id_kota')->unsigned();
             $table->integer('id_kecamatan')->unsigned();
             $table->integer('id_kelurahan')->unsigned();
-            $table->string('foto');
-            $table->enum('role', ['admin', 'organisasi', 'relawan']);
+            $table->enum('status', ['pengajuan', 'aktif', 'selesai']);
             $table->timestamps();
         });
     }
@@ -38,6 +37,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('acara');
     }
 }
