@@ -5,6 +5,7 @@ use App\Http\Controllers\Authcontroller;
 use App\Http\Controllers\Admincontroller;
 use App\Http\Controllers\Organisasicontroller;
 use App\Http\Controllers\Relawancontroller;
+use App\Http\Controllers\Donasicontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,9 @@ Route::get('/', [Relawancontroller::class, 'index']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);
+    Route::get('/organisasi/donasi', [Donasicontroller::class, 'index']);
 });
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
-    Route::get('/admin', [Admincontroller::class, 'index']);
+    Route::get('/dashboard', [Admincontroller::class, 'index']);
 });
