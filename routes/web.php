@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Authcontroller;
+use App\Http\Controllers\Admincontroller;
+use App\Http\Controllers\Organisasicontroller;
+use App\Http\Controllers\Relawancontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Autenticate User
+Route::get('/login', [Authcontroller::class, 'index'])->name('login');
+Route::post('/postlogin', [Authcontroller::class, 'postlogin']);
+Route::get('/logout', [Authcontroller::class, 'logout']);
+
+Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
+    Route::get();
 });
