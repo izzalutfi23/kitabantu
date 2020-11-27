@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donasimodel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Donasicontroller extends Controller
 {
@@ -24,7 +25,7 @@ class Donasicontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('organisasi.adddonasi');
     }
 
     /**
@@ -35,7 +36,28 @@ class Donasicontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'foto' => 'required|image|mimes:png,jpg,jpeg',
+            'judul' => 'required',
+            'keterangan' => 'required',
+            'target' => 'required',
+            'batas_waktu' => 'required'
+        ]);
+
+        $image = $request->file('foto');
+        $image->storeAs('public/donasi', $image->hashName());
+
+        Donasimodel::create([
+            'id_user' => $request->id_user,
+            'foto' => $image->hashName(),
+            'judul' => $request->judul,
+            'keterangan' => $request->keterangan,
+            'target' => $request->target,
+            'batas_waktu' => $request->batas_waktu,
+            'status' => 'pengajuan'
+        ]);
+
+        return redirect('/organisasi/donasi')->with('msg', 'Data donasi berhasil ditambahkan!');
     }
 
     /**

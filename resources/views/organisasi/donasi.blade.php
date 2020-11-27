@@ -16,26 +16,24 @@
                         <div class="d-flex">
                             <i class="mdi mdi-home text-muted hover-cursor"></i>
                             <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
-                            <p class="text-primary mb-0 hover-cursor">Analytics</p>
+                            <p class="text-primary mb-0 hover-cursor">Donasi</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-end flex-wrap">
-                        <button class="btn btn-primary mt-2 mt-xl-0">Buat Donasi</button>
+                        <a href="{{url('/organisasi/tambahdonasi')}}"><button class="btn btn-primary mt-2 mt-xl-0">Buat
+                                Donasi</button></a>
                     </div>
                 </div>
             </div>
         </div>
 
+        @if(session('msg'))
         <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="card bg-gradient-primary border-0">
                     <div class="card-body py-3 px-4 d-flex align-items-center justify-content-between flex-wrap">
-                        <p class="mb-0 text-white font-weight-medium">Get tons of UI components, Plugins,
-                            multiple layouts, 20+ sample pages, and more! </p>
+                        <p class="mb-0 text-white font-weight-medium">Success, {{session('msg')}}</p>
                         <div class="d-flex">
-                            <a href="https://www.bootstrapdash.com/product/majestic-admin-pro?utm_source=organic&utm_medium=banner&utm_campaign=free-preview"
-                                target="_blank" class="btn btn-outline-light mr-2 bg-gradient-danger border-0">Check Pro
-                                Version</a>
                             <button id="bannerClose" class="btn border-0 p-0 ml-auto">
                                 <i class="mdi mdi-close text-white"></i>
                             </button>
@@ -44,6 +42,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
         <div class="row">
             <div class="col-md-12 stretch-card">

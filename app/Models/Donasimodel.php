@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Donasimodel extends Model
 {
     use HasFactory;
+
+    protected $table = 'donasi';
+    protected $fillable = ['id_user', 'foto', 'judul', 'keterangan', 'target', 'batas_waktu', 'status'];
 }

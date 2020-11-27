@@ -27,7 +27,10 @@ Route::get('/', [Relawancontroller::class, 'index']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);
+    // Donasi
     Route::get('/organisasi/donasi', [Donasicontroller::class, 'index']);
+    Route::get('/organisasi/tambahdonasi', [Donasicontroller::class, 'create']);
+    Route::post('/organisasi/postdonasi', [Donasicontroller::class, 'store']);
 });
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
