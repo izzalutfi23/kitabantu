@@ -124,6 +124,53 @@
     <script>
         $(document).ready(function () {
             $('#example').DataTable();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: "GET",
+                url: "{{url('/provinsi')}}",
+                success: function (hasil_provinsi) {
+                    $("select[name=id_provinsi]").html(hasil_provinsi);
+                }
+            });
+
+            $("select[name=id_provinsi]").on("change", function () {
+                var id_provinsi_terpilih = $("option:selected", this).attr("id_provinsi");
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('/kota')}}" + '/' + id_provinsi_terpilih,
+                    success: function (hasil_kota) {
+                        $("select[name=id_kota]").html(hasil_kota);
+                    }
+                });
+            });
+
+            $("select[name=id_kota]").on("change", function () {
+                var id_kota_terpilih = $("option:selected", this).attr("id_kota");
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('/kecamatan')}}" + '/' + id_kota_terpilih,
+                    success: function (hasil_kecamatan) {
+                        $("select[name=id_kecamatan]").html(hasil_kecamatan);
+                    }
+                });
+            });
+
+            $("select[name=id_kecamatan]").on("change", function () {
+                var id_kecamatan_terpilih = $("option:selected", this).attr("id_kecamatan");
+                $.ajax({
+                    type: "GET",
+                    url: "{{url('/desa')}}" + '/' + id_kecamatan_terpilih,
+                    success: function (hasil_desa) {
+                        $("select[name=id_kelurahan]").html(hasil_desa);
+                    }
+                });
+            });
         });
         CKEDITOR.replace( 'keterangan' );
     </script>
