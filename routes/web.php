@@ -51,4 +51,8 @@ Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', [Admincontroller::class, 'index']);
+    Route::get('/dashboard/donasi', [Admincontroller::class, 'donasi']);
+    Route::get('/dashboard/detaildonasi/{donasimodel}', [Admincontroller::class, 'detaildonasi']);
+    Route::get('/dashboard/changestatus/{donasimodel}', [Admincontroller::class, 'changestatus']);
+    Route::get('/dashboard/deletedonasi/{donasimodel}', [Admincontroller::class, 'deletedonasi']);
 });
