@@ -49,4 +49,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function kelurahan(){
+        return $this->belongsTo('App\Models\Desa', 'id_kelurahan', 'id');
+    }
+
+    public function kecamatan(){
+        return $this->belongsTo('App\Models\Kecamatan', 'id_kecamatan', 'id');
+    }
+
+    public function kota(){
+        return $this->belongsTo('App\Models\Kabupaten', 'id_kota', 'id');
+    }
+
+    public function provinsi(){
+        return $this->belongsTo('App\Models\Provinsi', 'id_provinsi', 'id');
+    }
 }

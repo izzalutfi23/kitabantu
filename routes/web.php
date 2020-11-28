@@ -8,6 +8,7 @@ use App\Http\Controllers\Relawancontroller;
 use App\Http\Controllers\Donasicontroller;
 use App\Http\Controllers\Acaracontroller;
 use App\Http\Controllers\Wilayah;
+use App\Http\Controllers\Usercontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +62,6 @@ Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard/detailacara/{acaramodel}', [Admincontroller::class, 'showacara']);
     Route::get('/dashboard/statusacara/{acaramodel}', [Admincontroller::class, 'statusacara']);
     Route::get('/dashboard/deleteacara/{acaramodel}', [Admincontroller::class, 'destroyacara']);
+    Route::get('/dashboard/akun', [Usercontroller::class, 'index']);
+    Route::get('/dashboard/deleteakun/{user}', [Usercontroller::class, 'destroy']);
 });
