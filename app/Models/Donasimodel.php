@@ -11,4 +11,9 @@ class Donasimodel extends Model
 
     protected $table = 'donasi';
     protected $fillable = ['id_user', 'foto', 'judul', 'keterangan', 'target', 'batas_waktu', 'status'];
+    protected $primaryKey = 'id';
+
+    public function organisasi(){
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
+    }
 }

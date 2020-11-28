@@ -45,6 +45,10 @@
                                 <label>Batas Waktu</label>
                                 <input type="date" class="form-control" name="batas_waktu" value="{{$acara->batas_waktu}}">
                             </div>
+                            <div class="form-group">
+                                <label>Alamat</label>
+                                <textarea class="form-control" name="alamat" rows="4">{{$acara->kelurahan->name.', '.$acara->kecamatan->name.', '.$acara->kota->name.', '.$acara->provinsi->name}}</textarea>
+                            </div>
                         </form>
                     </div>
                 </div>

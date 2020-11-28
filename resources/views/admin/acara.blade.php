@@ -52,8 +52,8 @@
                                         <th>No</th>
                                         <th>Foto</th>
                                         <th>Judul</th>
+                                        <th>Pembuat Acara</th>
                                         <th>Keterangan</th>
-                                        <th width="10%">Alamat</th>
                                         <th>Target</th>
                                         <th>Batas Waktu</th>
                                         <th>Tindakan</th>
@@ -66,9 +66,9 @@
                                         <td><img src="{{Storage::url('public/acara/'.$data->foto)}}"
                                                 style="border-radius: 2px; height: auto; width: 100px;"></td>
                                         <td>{{$data->judul}}</td>
+                                        <td>{{$data->organisasi->name.' ('.$data->organisasi->email.')'}}</td>
                                         <td>{{substr(strip_tags(htmlspecialchars_decode($data->keterangan)), 0, 10)}}...
                                         </td>
-                                        <td>{{$data->kelurahan->name.', '.$data->kecamatan->name.', '.$data->kota->name.', '.$data->provinsi->name}}</td>
                                         <td>{{number_format($data->target)}} Orang</td>
                                         <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
                                         <td>

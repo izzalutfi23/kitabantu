@@ -30,7 +30,7 @@ class Acaramodel extends Model
         return $this->belongsTo('App\Models\Provinsi', 'id_provinsi', 'id');
     }
 
-    public function user(){
+    public function organisasi(){
         return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
 }

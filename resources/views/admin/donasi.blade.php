@@ -51,6 +51,7 @@
                                         <th>No</th>
                                         <th>Foto</th>
                                         <th>Judul</th>
+                                        <th>Pembuat Donasi</th>
                                         <th>Keterangan</th>
                                         <th>Target</th>
                                         <th>Batas Waktu</th>
@@ -64,6 +65,7 @@
                                         <td><img src="{{Storage::url('public/donasi/'.$data->foto)}}"
                                                 style="border-radius: 2px; height: auto; width: 100px;"></td>
                                         <td>{{$data->judul}}</td>
+                                        <td>{{$data->organisasi->name.' ('.$data->organisasi->email.')'}}</td>
                                         <td>{{substr(strip_tags(htmlspecialchars_decode($data->keterangan)), 0, 10)}}...</td>
                                         <td>Rp{{number_format($data->target)}}</td>
                                         <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
