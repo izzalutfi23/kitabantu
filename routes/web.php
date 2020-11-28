@@ -45,6 +45,8 @@ Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi/acara', [Acaracontroller::class, 'index']);
     Route::get('/organisasi/tambahacara', [Acaracontroller::class, 'create']);
     Route::post('/organisasi/postacara', [Acaracontroller::class, 'store']);
+    Route::get('/organisasi/editacara/{acaramodel}', [Acaracontroller::class, 'edit']);
+    Route::patch('/organisasi/updateacara/{acaramodel}', [Acaracontroller::class, 'update']);
 });
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
