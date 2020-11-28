@@ -57,6 +57,7 @@
                                         <th>Foto</th>
                                         <th>Judul</th>
                                         <th>Keterangan</th>
+                                        <th>Alamat</th>
                                         <th>Target</th>
                                         <th>Terkumpul</th>
                                         <th>Batas Waktu</th>
@@ -65,19 +66,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($acara as $data)
                                     <tr>
-                                        <td>1</td>
-                                        <td>jkbv</td>
-                                        <td>bjhjbcd</td>
-                                        <td>hvjhv</td>
-                                        <td>gvvhg</td>
-                                        <td>Rp0</td>
-                                        <td>cdvd</td>
-                                        <td><label class="badge badge-danger">Ok</label></td>
+                                        <td>{{$loop->iteration}}</td>
+                                        <td><img src="{{Storage::url('public/acara/'.$data->foto)}}"
+                                                style="border-radius: 2px; height: auto; width: 100px;"></td>
+                                        <td>{{$data->judul}}</td>
+                                        <td>{{substr(strip_tags(htmlspecialchars_decode($data->keterangan)), 0, 10)}}...
+                                        </td>
+                                        <td>{{$data->kelurahan->name}}</td>
+                                        <td>{{number_format($data->target)}} Orang</td>
+                                        <td>0 Orang</td>
+                                        <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
+                                        <td><label class="badge badge-danger">{{$data->status}}</label></td>
                                         <td>
-                                            <a href="{{url('/organisasi/editdonasi/')}}"><label class="badge badge-primary">Edit</i></label></a>
+                                            <a href="{{url('/organisasi/editacara/'.$data->id)}}"><label
+                                                    class="badge badge-primary">Edit</i></label></a>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Acaramodel;
+use App\Models\Desa;
 use Illuminate\Http\Request;
 
 class Acaracontroller extends Controller
@@ -14,7 +15,13 @@ class Acaracontroller extends Controller
      */
     public function index()
     {
-        return view('organisasi.acara');
+        $acara = Acaramodel::where('id_user', Auth()->user()->id)->get();
+        return view('organisasi.acara', ['acara' => $acara]);
+        // return $acara;
+        // return Desa::whereId(1101010001)->with(['kecamatan', function($q){
+        //     $q->select(['id', 'name']);
+        // }])->get();
+        // 2147483647
     }
 
     /**

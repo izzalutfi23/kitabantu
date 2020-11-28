@@ -12,4 +12,13 @@ class Acaramodel extends Model
     protected $table = 'acara';
     protected $fillable = ['id_user', 'foto', 'judul', 'keterangan', 'target', 'batas_waktu', 'status', 'id_provinsi', 
     'id_kota', 'id_kecamatan', 'id_kelurahan'];
+    protected $primaryKey = 'id';
+
+    public function kelurahan(){
+        return $this->belongsTo('App\Models\Desa', 'id_kelurahan', 'id');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
+    }
 }

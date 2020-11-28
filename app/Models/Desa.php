@@ -10,5 +10,7 @@ class Desa extends Model
     use HasFactory;
 
     protected $table = 'villages';
+    protected $primaryKey = 'id';
+    public $incrementing = false;
     protected $fillable = ['district_id', 'name'];
 }
