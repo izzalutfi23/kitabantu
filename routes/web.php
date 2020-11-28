@@ -51,8 +51,14 @@ Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
 
 Route::group(['middleware'=>['auth', 'checkRole:admin']], function(){
     Route::get('/dashboard', [Admincontroller::class, 'index']);
+    // Halaman Donasi
     Route::get('/dashboard/donasi', [Admincontroller::class, 'donasi']);
     Route::get('/dashboard/detaildonasi/{donasimodel}', [Admincontroller::class, 'detaildonasi']);
     Route::get('/dashboard/changestatus/{donasimodel}', [Admincontroller::class, 'changestatus']);
     Route::get('/dashboard/deletedonasi/{donasimodel}', [Admincontroller::class, 'deletedonasi']);
+    // Halaman Acara
+    Route::get('/dashboard/acara', [Admincontroller::class, 'acara']);
+    Route::get('/dashboard/detailacara/{acaramodel}', [Admincontroller::class, 'showacara']);
+    Route::get('/dashboard/statusacara/{acaramodel}', [Admincontroller::class, 'statusacara']);
+    Route::get('/dashboard/deleteacara/{acaramodel}', [Admincontroller::class, 'destroyacara']);
 });

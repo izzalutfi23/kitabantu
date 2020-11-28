@@ -1,5 +1,5 @@
-@extends('organisasi/layout/main')
-@section('title', 'Acara | Organisasi')
+@extends('admin/layout/main')
+@section('title', 'Acara | Admin')
 @section('container')
 <!-- partial -->
 <div class="main-panel">
@@ -18,10 +18,6 @@
                             <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
                             <p class="text-primary mb-0 hover-cursor">Acara</p>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-end flex-wrap">
-                        <a href="{{url('/organisasi/tambahacara')}}"><button class="btn btn-primary mt-2 mt-xl-0">Buat
-                                Acara</button></a>
                     </div>
                 </div>
             </div>
@@ -59,9 +55,7 @@
                                         <th>Keterangan</th>
                                         <th width="10%">Alamat</th>
                                         <th>Target</th>
-                                        <th>Terkumpul</th>
                                         <th>Batas Waktu</th>
-                                        <th>Status</th>
                                         <th>Tindakan</th>
                                     </tr>
                                 </thead>
@@ -76,12 +70,17 @@
                                         </td>
                                         <td>{{$data->kelurahan->name.', '.$data->kecamatan->name.', '.$data->kota->name.', '.$data->provinsi->name}}</td>
                                         <td>{{number_format($data->target)}} Orang</td>
-                                        <td>0 Orang</td>
                                         <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
-                                        <td><label class="badge badge-danger">{{$data->status}}</label></td>
                                         <td>
-                                            <a href="{{url('/organisasi/editacara/'.$data->id)}}"><label
-                                                    class="badge badge-primary">Edit</i></label></a>
+                                            <a href="{{url('/dashboard/detailacara/'.$data->id)}}"><label class="badge badge-primary">Detail</i></label></a>
+                                            @if($data->status=='pengajuan')
+                                            <a href="{{url('/dashboard/statusacara/'.$data->id)}}"><label class="badge badge-primary">Terima</i></label></a>
+                                            @elseif($data->status=='aktif')
+                                            <a href="#"><label class="badge badge-primary">Donasi Aktif</i></label></a>
+                                            @else
+                                            <label class="badge badge-primary">Donasi Selesai</i></label>
+                                            @endif
+                                            <a onclick="return confirm('Data akan dihapus!')" href="{{url('/dashboard/deleteacara/'.$data->id)}}"><label class="badge badge-danger">Hapus</i></label></a>
                                         </td>
                                     </tr>
                                     @endforeach
