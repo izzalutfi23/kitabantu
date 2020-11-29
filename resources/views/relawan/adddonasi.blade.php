@@ -60,7 +60,7 @@
                             <textarea name="harapan" cols="40" rows="5" class="" id="message" aria-invalid="false"
                                 placeholder="Tulis Doa atau Harapan (Opsional)"></textarea>
                         </div>
-                        <p>*Ganti nilai 0 sesuai dengan jumlah donasi kamu jika ingin berdonasi berupa barang abaikan
+                        <p>*Ganti nilai 0 sesuai dengan jumlah donasi kamu, jika ingin berdonasi berupa barang abaikan
                             form itu
                             dan isi form nama barang sesuai barang yang kamu donasikan</p>
                         <div class="col-xs-12 submit-button">

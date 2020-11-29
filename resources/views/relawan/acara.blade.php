@@ -19,11 +19,11 @@
 <section id="pro-sec">
     <div class="container">
         <div class="row text-center" style="margin-top:-30px;">
-
+            @foreach($acara as $data)
             <div class="col-sm-6 col-md-4 clearfix top-off">
-                <div class="grid-image"><img src="{{asset('utama/images/test1.jpg')}}"></div>
+                <div class="grid-image"><img src="{{Storage::url('public/acara/'.$data->foto)}}" height="200px"></div>
                 <div class="post-content">
-                    <h3>Nepal Earthquake: Clean Water Initiative</h3>
+                    <h3>{{$data->judul}}</h3>
                     <div class="progress" style="margin-top: 15px; height: 10px;">
                         <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
                             aria-valuemin="0" aria-valuemax="100"></div>
@@ -33,7 +33,7 @@
                         <tr>
                             <td align="left" valign="top">
                                 <h4>2 Orang</h4>
-                                <p style="font-size: 12px;">Terkumpul dari target 20 orang</p>
+                                <p style="font-size: 12px;">Terkumpul dari target {{$data->target}} orang</p>
                             </td>
                             <td align="right" valign="top">
                                 <h5>20%</h5>
@@ -41,31 +41,10 @@
                         </tr>
                     </table>
                     <hr style="width: 100%;">
-                    <a href="{{url('acara/detail')}}">Lihat Detail</a>
-                </div>
-
-            </div>
-            <div class="col-sm-6 col-md-4 clearfix top-off">
-                <div class="grid-image"><img src="{{asset('utama/images/test1.jpg')}}"></div>
-                <div class="post-content">
-                    <h3>Nepal Earthquake: Clean Water Initiative</h3>
-                    <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="donate.html" title="">Donate Now</a>
+                    <a href="{{url('acara/detail/'.$data->id)}}">Lihat Detail</a>
                 </div>
             </div>
-
-            <div class="col-sm-6 col-md-4 clearfix top-off">
-                <div class="grid-image"><img src="{{asset('utama/images/test1.jpg')}}"></div>
-                <div class="post-content">
-                    <h3>Nepal Earthquake: Clean Water Initiative</h3>
-                    <hr>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.</p>
-                    <a href="donate.html" title="">Donate Now</a>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

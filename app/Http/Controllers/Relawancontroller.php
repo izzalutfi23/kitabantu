@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Donasimodel;
 use App\Models\Relawandonasi;
 use App\Models\User;
+use App\Models\Acaramodel;
+use App\Models\Relawanacara;
 use Illuminate\Http\Request;
 
 class Relawancontroller extends Controller
@@ -51,17 +53,30 @@ class Relawancontroller extends Controller
 
     // Halaman acara
     public function acara(){
-        return view('relawan.acara');
+        $acara = Acaramodel::orderBy('id', 'DESC')->get();
+        return view('relawan.acara', ['acara' => $acara]);
     }
 
     // Detail acara
-    public function detailacara(){
-        return view('relawan.detailacara');
+    public function detailacara(Acaramodel $acaramodel){
+        return view('relawan.detailacara', ['acara' => $acaramodel]);
     }
 
     // Input acara
-    public function inputacara(){
-        return view('relawan.addacara');
+    public function inputacara(Acaramodel $acaramodel){
+        return view('relawan.addacara', ['acara' => $acaramodel]);
+    }
+
+    // Insert acara
+    public function storeacara(Request $request){
+        Relawanacara::create([
+            'id_user' => $request->id_user,
+            'id_acara' => $request->id_acara,
+            'status' => '0',
+            'harapan' => $request->harapan
+        ]);
+
+        return redirect('acara/input/'.$request->id_acara)->with('msg', 'Anda berhasil mendaftarkan diri, silahkan cek status pendaftaran anda di menu kontribusi saya');
     }
 
     // Pilih akun

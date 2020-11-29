@@ -41,7 +41,7 @@
                         </tr>
                     </table>
                     <hr style="width: 100%;">
-                    <a href="{{url('donasi/detail')}}">Lihat Detail</a>
+                    <a href="{{url('donasi/detail/'.$data->id)}}">Lihat Detail</a>
                 </div>
             </div>
             @endforeach

@@ -40,8 +40,9 @@ Route::get('/donasi/detail/{donasimodel}', [Relawancontroller::class, 'detaildon
 Route::get('/donasi/input/{donasimodel}', [Relawancontroller::class, 'inputdonasi']);
 Route::post('/donasi/insert', [Relawancontroller::class, 'storedonasi']);
 Route::get('/acara', [Relawancontroller::class, 'acara']);
-Route::get('/acara/detail', [Relawancontroller::class, 'detailacara']);
-Route::get('/acara/input', [Relawancontroller::class, 'inputacara']);
+Route::get('/acara/detail/{acaramodel}', [Relawancontroller::class, 'detailacara']);
+Route::get('/acara/input/{acaramodel}', [Relawancontroller::class, 'inputacara']);
+Route::post('/acara/insert', [Relawancontroller::class, 'storeacara']);
 Route::get('/pilihakun', [Relawancontroller::class, 'pilihakun']);
 Route::get('/registrasi/relawan', [Relawancontroller::class, 'regisdonasi']);
 Route::get('/registrasi/organisasi', [Relawancontroller::class, 'regisorganisasi']);
