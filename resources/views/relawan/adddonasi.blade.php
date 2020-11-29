@@ -18,46 +18,57 @@
 
 <section id="about-sec">
     <div class="container">
+        @if(session('msg'))
+        <div class="alert alert-primary" style="background: green; color: #fff;" role="alert">
+            {{session('msg')}}
+        </div>
+        @endif
         <div class="row">
 
             <div class="col-md-8">
-                <h2 style="margin-top:0;">Bantu Ibu Tukang Ojek Berjuang Hidupi Keluarga</h2>
-                <div class="con-form clearfix" style="margin-bottom: 10px;">
-                    <div class="col-md-6">
-                        <input type="text" name="name" value="" size="40" class="" aria-required="true"
-                            aria-invalid="false" placeholder="Nama*">
+                <form action="{{url('/donasi/insert')}}" method="POST">
+                    @csrf
+                    <h2 style="margin-top:0;">Bantu Ibu Tukang Ojek Berjuang Hidupi Keluarga</h2>
+                    <div class="con-form clearfix" style="margin-bottom: 10px;">
+                        <div class="col-md-6">
+                            <input type="hidden" name="id_user" value="{{Auth()->user()->id}}">
+                            <input type="hidden" name="id_donasi" value="{{$donasi->id}}">
+                            <input type="text" name="name" value="{{$donasi->organisasi->name}}" size="40" class=""
+                                aria-required="true" aria-invalid="false" placeholder="Nama*">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="username" value="{{$donasi->organisasi->username}}" size="40"
+                                class="" aria-required="true" aria-invalid="false" placeholder="Username*">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="no_telepon" value="{{$donasi->organisasi->email}}" size="40"
+                                class="" aria-invalid="false" placeholder="No Telepon*">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="Email" value="{{$donasi->organisasi->kota->name}}" size="40"
+                                class="" aria-invalid="false" placeholder="Alamat Email*">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="number" name="jml_uang" value="0" size="40" class="" aria-required="true"
+                                aria-invalid="false" value="0">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" name="barang" value="" size="40" class="" aria-required="true"
+                                aria-invalid="false" placeholder="Isi nama barang jika berdonasi barang">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea name="harapan" cols="40" rows="5" class="" id="message" aria-invalid="false"
+                                placeholder="Tulis Doa atau Harapan (Opsional)"></textarea>
+                        </div>
+                        <p>*Ganti nilai 0 sesuai dengan jumlah donasi kamu jika ingin berdonasi berupa barang abaikan
+                            form itu
+                            dan isi form nama barang sesuai barang yang kamu donasikan</p>
+                        <div class="col-xs-12 submit-button">
+                            <input type="submit" value="Donasi Sekarang" class="btn2" id="sub"
+                                style="border:none; margin: 20px 0 0 0">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" name="username" value="" size="40" class="" aria-required="true"
-                            aria-invalid="false" placeholder="Username*">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="no_telepon" value="" size="40" class="" aria-invalid="false"
-                            placeholder="No Telepon*">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" name="Email" value="" size="40" class="" aria-invalid="false"
-                            placeholder="Alamat Email*">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="number" name="jml_donasi" value="" size="40" class="" aria-required="true"
-                            aria-invalid="false" value="0" placeholder="Jumlah Donasi (Rp)*">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="text" name="kota" value="" size="40" class="" aria-required="true"
-                            aria-invalid="false" placeholder="Kota*">
-                    </div>
-                    <div class="col-md-12">
-                        <textarea name="message" cols="40" rows="5" class="" id="message" aria-invalid="false"
-                            placeholder="Tulis Doa atau Harapan (Opsional)"></textarea>
-                    </div>
-                    <p>*Pembayaran donasi hanya bisa dilakukan melalui transfer ke rekening BRI, nomor rekening
-                        akan muncul setelah klik tombol <strong>Donasi Sekarang</strong></p>
-                    <div class="col-xs-12 submit-button">
-                        <input type="submit" value="Donasi Sekarang" class="btn2" id="sub"
-                            style="border:none; margin: 20px 0 0 0">
-                    </div>
-                </div>
+                </form>
             </div>
 
             <div class="col-md-4">
@@ -73,17 +84,19 @@
                         <div class="well well-sm">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <img src="{{asset('utama/images/user/profil.jpeg')}}" alt="" class="img-rounded img-responsive" />
+                                    <img src="{{asset('utama/images/user/profil.jpeg')}}" alt=""
+                                        class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-6 col-md-8">
-                                    <h4>
-                                        Bhaumik Patel</h4>
-                                    <small><cite title="San Francisco, USA">San Francisco, USA <i
+                                    <h4>{{$donasi->organisasi->name}}</h4>
+                                    <small><cite
+                                            title="San Francisco, USA">{{$donasi->organisasi->kota->name.', '.$donasi->organisasi->provinsi->name}}<i
                                                 class="glyphicon glyphicon-map-marker">
                                             </i></cite></small>
                                     <p>
                                         Dibuat pada tanggal<br>
-                                        <i class="fa fa-calendar"></i> June 02, 1988</p>
+                                        <i class="fa fa-calendar"></i> {{date('d M Y', strtotime($donasi->created_at))}}
+                                    </p>
                                 </div>
                             </div>
                         </div>

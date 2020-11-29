@@ -176,36 +176,32 @@
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                 et dolore magna aliqua.</h5>
             <div class="text-center">
+                @foreach($donasi as $data)
                 <div class="col-md-4 clearfix top-off">
-                    <div class="grid-image"><img src="{{asset('utama/images/test1.jpg')}}"></div>
+                    <div class="grid-image"><img src="{{Storage::url('public/donasi/'.$data->foto)}}" height="200px"></div>
                     <div class="post-content">
-                        <h3>Nepal Earthquake: Clean Water Initiative</h3>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
-                        <a href="projects.html" title="">View Project</a>
+                        <h3>{{$data->judul}}</h3>
+                        <div class="progress" style="margin-top: 15px; height: 10px;">
+                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <p style="padding-bottom: 15px;">Lorem ipsum dolor sit amet, sed do eiusmod tempor</p>
+                        <table width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <h4>Rp100,000</h4>
+                                    <p style="font-size: 12px;">Terkumpul dari Rp10,000,000</p>
+                                </td>
+                                <td align="right" valign="top">
+                                    <h5>20%</h5>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr style="width: 100%;">
+                        <a href="{{url('/donasi/detail/'.$data->id)}}" title="">Lihat Detail</a>
                     </div>
                 </div>
-                <div class="col-md-4 clearfix top-off">
-                    <div class="grid-image"><img src="{{asset('utama/images/test2.jpg')}}"></div>
-                    <div class="post-content">
-                        <h3>Nepal Earthquake: Clean Water Initiative</h3>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
-                        <a href="projects.html" title="">View Project</a>
-                    </div>
-                </div>
-                <div class="col-md-4 clearfix top-off">
-                    <div class="grid-image"><img src="{{asset('utama/images/test3.jpg')}}"></div>
-                    <div class="post-content">
-                        <h3>Nepal Earthquake: Clean Water Initiative</h3>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
-                        <a href="projects.html" title="">View Project</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

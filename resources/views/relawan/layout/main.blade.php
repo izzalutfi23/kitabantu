@@ -63,8 +63,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="container">
             <div class="row">
                 <div class="attr-nav">
+                    @if(Auth::check())
+                    <a class="sponsor-button" href="#">{{Auth()->user()->name}}</a>
+                    <a class="donation" href="{{url('/logout')}}">Logout</a>
+                    @else
                     <a class="sponsor-button" href="{{url('/login')}}">Login</a>
                     <a class="donation" href="{{url('/pilihakun')}}">Buat Akun</a>
+                    @endif
                 </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">

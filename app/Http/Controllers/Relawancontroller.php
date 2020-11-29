@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donasimodel;
+use App\Models\Relawandonasi;
 use Illuminate\Http\Request;
 
 class Relawancontroller extends Controller
 {
     // Halaman awal
     public function index(){
-        return view('relawan.index');
+        $donasi = Donasimodel::offset(0)->limit(3)->orderBy('id', 'DESC')->get();
+        return view('relawan.index', ['donasi' => $donasi]);
     }
 
     // Halaman kontribusi
@@ -18,17 +21,31 @@ class Relawancontroller extends Controller
 
     // Halaman donasi
     public function donasi(){
-        return view('relawan.donasi');
+        $donasi = Donasimodel::orderBy('id', 'DESC')->get();
+        return view('relawan.donasi', ['donasi' => $donasi]);
     }
 
     // Detail donasi
-    public function detaildonasi(){
-        return view('relawan.detaildonasi');
+    public function detaildonasi(Donasimodel $donasimodel){
+        return view('relawan.detaildonasi', ['donasi' => $donasimodel]);
     }
 
     // Input donasi
-    public function inputdonasi(){
-        return view('relawan.adddonasi');
+    public function inputdonasi(Donasimodel $donasimodel){
+        return view('relawan.adddonasi', ['donasi' => $donasimodel]);
+    }
+
+    // Insert donasi
+    public function storedonasi(Request $request){
+        Relawandonasi::create([
+            'id_user' => $request->id_user,
+            'id_donasi' => $request->id_donasi,
+            'jml_uang' => $request->jml_uang,
+            'barang' => $request->barang,
+            'harapan' => $request->harapan
+        ]);
+
+        return redirect('donasi/input/'.$request->id_donasi)->with('msg', 'Donasi berhasil ditambahkan, silahkan cek riwayat donasi anda di menu kontribusi saya');
     }
 
     // Halaman acara
