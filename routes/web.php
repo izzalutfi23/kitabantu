@@ -32,7 +32,10 @@ Route::get('/kota/{id}', [Wilayah::class, 'get_kota']);
 Route::get('/kecamatan/{id}', [Wilayah::class, 'get_kecamatan']);
 Route::get('/desa/{id}', [Wilayah::class, 'get_desa']);
 
+// Halaman Utama
 Route::get('/', [Relawancontroller::class, 'index']);
+Route::get('/kontribusi', [Relawancontroller::class, 'kontribusi']);
+Route::get('/donasi', [Relawancontroller::class, 'donasi']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);
