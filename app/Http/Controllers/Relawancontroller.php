@@ -20,4 +20,9 @@ class Relawancontroller extends Controller
     public function donasi(){
         return view('relawan.donasi');
     }
+
+    // Detail donasi
+    public function detaildonasi(){
+        return view('relawan.detaildonasi');
+    }
 }

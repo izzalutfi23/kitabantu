@@ -36,6 +36,7 @@ Route::get('/desa/{id}', [Wilayah::class, 'get_desa']);
 Route::get('/', [Relawancontroller::class, 'index']);
 Route::get('/kontribusi', [Relawancontroller::class, 'kontribusi']);
 Route::get('/donasi', [Relawancontroller::class, 'donasi']);
+Route::get('/donasi/detail', [Relawancontroller::class, 'detaildonasi']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);

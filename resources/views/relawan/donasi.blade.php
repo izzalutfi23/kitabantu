@@ -41,7 +41,7 @@
                         </tr>
                     </table>
                     <hr style="width: 100%;">
-                    <a href="detaildonasi.html">Lihat Detail</a>
+                    <a href="{{url('donasi/detail')}}">Lihat Detail</a>
                 </div>
 
             </div>
