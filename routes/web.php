@@ -37,6 +37,13 @@ Route::get('/', [Relawancontroller::class, 'index']);
 Route::get('/kontribusi', [Relawancontroller::class, 'kontribusi']);
 Route::get('/donasi', [Relawancontroller::class, 'donasi']);
 Route::get('/donasi/detail', [Relawancontroller::class, 'detaildonasi']);
+Route::get('/donasi/input', [Relawancontroller::class, 'inputdonasi']);
+Route::get('/acara', [Relawancontroller::class, 'acara']);
+Route::get('/acara/detail', [Relawancontroller::class, 'detailacara']);
+Route::get('/acara/input', [Relawancontroller::class, 'inputacara']);
+Route::get('/pilihakun', [Relawancontroller::class, 'pilihakun']);
+Route::get('/registrasi/donasi', [Relawancontroller::class, 'regisdonasi']);
+Route::get('/registrasi/organisasi', [Relawancontroller::class, 'regisorganisasi']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);

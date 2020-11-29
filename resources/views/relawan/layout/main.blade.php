@@ -63,8 +63,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="container">
             <div class="row">
                 <div class="attr-nav">
-                    <a class="sponsor-button" href="login.html">Login</a>
-                    <a class="donation" href="pilihakun.html">Buat Akun</a>
+                    <a class="sponsor-button" href="{{url('/login')}}">Login</a>
+                    <a class="donation" href="{{url('/pilihakun')}}">Buat Akun</a>
                 </div>
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">

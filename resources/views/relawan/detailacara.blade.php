@@ -32,6 +32,7 @@
                         at a
                         fraction of the camp price. However, who has the willpower
                     </p>
+                    <p>Lokasi : Desa Mlagen, Pamotan, Rembang</p>
                 </div>
             </div>
 
@@ -57,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{url('/donasi/input')}}"><button class="btn btn-success donasi">Donasi Sekarang</button></a>
+                <a href="{{url('/acara/input')}}"><button class="btn btn-success donasi">Ikut Berpartisipasi</button></a>
                 <button class="sponsor-button waktu"><i class="fa fa-clock-o"></i> 3 Hari lagi</button>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -65,8 +66,8 @@
                             <table width="100%">
                                 <tr>
                                     <td align="left" valign="top">
-                                        <h4>Rp100,000</h4>
-                                        <p style="font-size: 12px;">Terkumpul dari Rp10,000,000</p>
+                                        <h4>2 Orang</h4>
+                                        <p style="font-size: 12px;">Terkumpul dari target 20 orang</p>
                                     </td>
                                     <td align="right" valign="top">
                                         <h5>20%</h5>
@@ -77,7 +78,7 @@
                                 <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p style="font-size: 12px;">Dari 2 Donasi</p>
+                            <p style="font-size: 12px;">2 Partisipan</p>
                         </div>
                     </div>
                 </div>
