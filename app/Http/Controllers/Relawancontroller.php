@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donasimodel;
 use App\Models\Relawandonasi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Relawancontroller extends Controller
@@ -76,5 +77,31 @@ class Relawancontroller extends Controller
     // Halaman registrasi organisasi
     public function regisorganisasi(){
         return view('relawan.registrasi');
+    }
+
+    // Registrasi
+    public function storeregistrasi(Request $request){
+        $this->validate($request, [
+            'foto' => 'required|image|mimes:png,jpg,jpeg',
+            'username' => 'required'
+        ]);
+
+        $image = $request->file('foto');
+        $image->storeAs('public/user', $image->hashName());
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'tgl_lahir' => $request->tgl_lahir,
+            'foto' => $image->hashName(),
+            'role' => $request->role,
+            'id_provinsi' => $request->id_provinsi,
+            'id_kota' => $request->id_kota,
+            'id_kecamatan' => $request->id_kecamatan,
+            'id_kelurahan' => $request->id_kelurahan
+        ]);
+        
+        return redirect('/registrasi/'.$request->role)->with('msg', 'Registrasi berhasil, silahkan login!');
     }
 }

@@ -43,8 +43,9 @@ Route::get('/acara', [Relawancontroller::class, 'acara']);
 Route::get('/acara/detail', [Relawancontroller::class, 'detailacara']);
 Route::get('/acara/input', [Relawancontroller::class, 'inputacara']);
 Route::get('/pilihakun', [Relawancontroller::class, 'pilihakun']);
-Route::get('/registrasi/donasi', [Relawancontroller::class, 'regisdonasi']);
+Route::get('/registrasi/relawan', [Relawancontroller::class, 'regisdonasi']);
 Route::get('/registrasi/organisasi', [Relawancontroller::class, 'regisorganisasi']);
+Route::post('/registrasi', [Relawancontroller::class, 'storeregistrasi']);
 
 Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     Route::get('/organisasi', [Organisasicontroller::class, 'index']);

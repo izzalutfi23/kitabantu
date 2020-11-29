@@ -1060,7 +1060,7 @@ video {
 	margin:0 !important;
 }
 
-.con-form input[type=text], .con-form input[type=number], .con-form input[type=email], .con-form input[type=password], .con-form input[type=phone], .con-form textarea {
+.con-form input[type=text], .con-form input[type=date], .con-form input[type=file], .con-form input[type=number], .con-form input[type=email], .con-form input[type=password], .con-form input[type=phone], .con-form textarea {
     border-radius: 0;
 	width:100%;
 	margin-top:30px;

@@ -25,7 +25,7 @@
                 melakukan donasi atau menjadi relawan dan pilih <i class="text-primary">Akun Organisasi</i> Jika
                 ingin membuat acara atau mengumpulkan donasi</h5>
             <div class="text-center">
-                <a href="{{url('/registrasi/donasi')}}" class="btn1">Akun Donasi</a>
+                <a href="{{url('/registrasi/relawan')}}" class="btn1">Akun Donasi</a>
                 <a href="{{url('/registrasi/organisasi')}}" class="btn2">Akun Organisasi</a>
             </div>
         </div>
