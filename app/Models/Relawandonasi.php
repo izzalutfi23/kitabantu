@@ -16,4 +16,8 @@ class Relawandonasi extends Model
     public function donasi(){
         return $this->belongsTo('App\Models\Donasimodel', 'id_donasi', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
+    }
 }

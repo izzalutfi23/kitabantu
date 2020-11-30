@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Donasimodel;
 use Illuminate\Http\Request;
+use App\Models\Relawandonasi;
 use Illuminate\Support\Facades\Storage;
 
 class Donasicontroller extends Controller
@@ -67,9 +68,10 @@ class Donasicontroller extends Controller
      * @param  \App\Models\Donasimodel  $donasimodel
      * @return \Illuminate\Http\Response
      */
-    public function show(Donasimodel $donasimodel)
+    public function showdonasi($id)
     {
-        //
+        $pendonasi = Relawandonasi::where('id_donasi', $id)->get();
+        return view('organisasi.pendonasi', ['pendonasi' => $pendonasi]);
     }
 
     /**

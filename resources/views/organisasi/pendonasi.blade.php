@@ -1,5 +1,5 @@
 @extends('organisasi/layout/main')
-@section('title', 'Pendaftar Acara | Organisasi')
+@section('title', 'Pendonasi | Organisasi')
 @section('container')
 <!-- partial -->
 <div class="main-panel">
@@ -10,13 +10,13 @@
                 <div class="d-flex justify-content-between flex-wrap">
                     <div class="d-flex align-items-end flex-wrap">
                         <div class="mr-md-3 mr-xl-5">
-                            <h2>Halaman Pendaftar Acara</h2>
-                            <p class="mb-md-0">Data Pendaftar Acara</p>
+                            <h2>Halaman Donasi</h2>
+                            <p class="mb-md-0">Data Pendonasi</p>
                         </div>
                         <div class="d-flex">
                             <i class="mdi mdi-home text-muted hover-cursor"></i>
                             <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
-                            <p class="text-primary mb-0 hover-cursor">Pendaftar Acara</p>
+                            <p class="text-primary mb-0 hover-cursor">Pendaftar Pendonasi</p>
                         </div>
                     </div>
                 </div>
@@ -50,30 +50,22 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Acara</th>
-                                        <th>Nama Relawan</th>
+                                        <th>Nama Pendonasi</th>
                                         <th>Foto</th>
                                         <th>Alamat</th>
-                                        <th>Tindakan</th>
+                                        <th>Uang</th>
+                                        <th>Barang</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($relawan as $data)
+                                    @foreach($pendonasi as $data)
                                     <tr>
                                         <td>{{$loop->iteration}}</td>
-                                        <td>{{$data->acara->judul}}</td>
                                         <td>{{$data->user->name}}</td>
                                         <td>Orang</td>
                                         <td>{{$data->user->kelurahan->name.', '.$data->user->kecamatan->name.', '.$data->user->kota->name.', '.$data->user->provinsi->name}}</td>
-                                        <td>
-                                            @if($data->status==0)
-                                            <a href="{{url('/organisasi/acara/change/'.$data->id)}}"><label
-                                                    class="badge badge-danger">Terima</i></label></a>
-                                            @else
-                                            <a href="#"><label
-                                                    class="badge badge-primary">Diterima</i></label></a>
-                                            @endif
-                                        </td>
+                                        <td>Rp{{number_format($data->jml_uang)}}</td>
+                                        <td>{{$data->barang}}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

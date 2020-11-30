@@ -82,6 +82,8 @@
                                         <td>
                                             <a href="{{url('/organisasi/editacara/'.$data->id)}}"><label
                                                     class="badge badge-primary">Edit</i></label></a>
+                                            <a href="{{url('/organisasi/acara/pendaftar/'.$data->id)}}"><label
+                                                    class="badge badge-primary">Lihat Pendaftar</i></label></a>
                                         </td>
                                     </tr>
                                     @endforeach

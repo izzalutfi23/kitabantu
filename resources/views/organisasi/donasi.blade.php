@@ -78,6 +78,8 @@
                                         <td><label class="badge badge-danger">{{$data->status}}</label></td>
                                         <td>
                                             <a href="{{url('/organisasi/editdonasi/'.$data->id)}}"><label class="badge badge-primary">Edit</i></label></a>
+                                            <a href="{{url('/organisasi/donasi/pendonasi/'.$data->id)}}"><label
+                                                    class="badge badge-primary">Lihat Pendonasi</i></label></a>
                                         </td>
                                     </tr>
                                     @endforeach

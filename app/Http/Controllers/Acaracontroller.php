@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Acaramodel;
 use App\Models\Desa;
+use App\Models\Relawanacara;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Acaracontroller extends Controller
 {
@@ -75,9 +77,15 @@ class Acaracontroller extends Controller
      * @param  \App\Models\Acaramodel  $acaramodel
      * @return \Illuminate\Http\Response
      */
-    public function show(Acaramodel $acaramodel)
+    public function showrelawan($id)
     {
-        //
+        $relawan = Relawanacara::where('id_acara', $id)->get();
+        return view('organisasi.pendaftaracara', ['relawan' => $relawan]);
+    }
+
+    // Ubah status pendaftar
+    public function changests(Relawanacara $relawanacara){
+        return $relawanacara;
     }
 
     /**

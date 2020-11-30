@@ -15,4 +15,8 @@ class Relawanacara extends Model
     public function acara(){
         return $this->belongsTo('App\Models\Acaramodel', 'id_acara', 'id');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'id_user', 'id');
+    }
 }

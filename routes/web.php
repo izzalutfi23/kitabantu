@@ -53,12 +53,15 @@ Route::group(['middleware'=>['auth', 'checkRole:organisasi']], function(){
     // Donasi
     Route::get('/organisasi/donasi', [Donasicontroller::class, 'index']);
     Route::get('/organisasi/tambahdonasi', [Donasicontroller::class, 'create']);
+    Route::get('/organisasi/donasi/pendonasi/{id}', [Donasicontroller::class, 'showdonasi']);
     Route::post('/organisasi/postdonasi', [Donasicontroller::class, 'store']);
     Route::get('/organisasi/editdonasi/{donasimodel}', [Donasicontroller::class, 'edit']);
     Route::patch('/organisasi/updatedonasi/{donasimodel}', [Donasicontroller::class, 'update']);
     // Acara
     Route::get('/organisasi/acara', [Acaracontroller::class, 'index']);
     Route::get('/organisasi/tambahacara', [Acaracontroller::class, 'create']);
+    Route::get('/organisasi/acara/pendaftar/{id}', [Acaracontroller::class, 'showrelawan']);
+    Route::get('/organisasi/acara/change/{relawanacara}', [Acaracontroller::class, 'changests']);
     Route::post('/organisasi/postacara', [Acaracontroller::class, 'store']);
     Route::get('/organisasi/editacara/{acaramodel}', [Acaracontroller::class, 'edit']);
     Route::patch('/organisasi/updateacara/{acaramodel}', [Acaracontroller::class, 'update']);
