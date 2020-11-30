@@ -75,7 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand logo" href="index.html"><img src="{{asset('utama/images/logo.png')}}"
+                    <a class="navbar-brand logo" href="{{url('/')}}"><img src="{{asset('utama/images/logo1.png')}}"
                             class="img-responsive" /></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-menu">

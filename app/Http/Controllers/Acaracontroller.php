@@ -85,7 +85,11 @@ class Acaracontroller extends Controller
 
     // Ubah status pendaftar
     public function changests(Relawanacara $relawanacara){
-        return $relawanacara;
+        Relawanacara::whereId($relawanacara->id)->update([
+            'status' => '1'
+        ]);
+
+        return redirect('/organisasi/acara/pendaftar/'.$relawanacara->id_acara)->with('msg', 'Status berhasil diubah!');
     }
 
     /**

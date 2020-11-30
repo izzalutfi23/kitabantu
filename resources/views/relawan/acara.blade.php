@@ -28,7 +28,6 @@
                         <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
                             aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <p style="padding-bottom: 15px;">Lorem ipsum dolor sit amet, sed do eiusmod tempor</p>
                     <table width="100%">
                         <tr>
                             <td align="left" valign="top">

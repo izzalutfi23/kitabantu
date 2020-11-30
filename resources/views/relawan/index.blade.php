@@ -13,27 +13,33 @@
         <div class="carousel-inner" role="listbox">
             <!-- Item 1 -->
             <div class="item active slide1">
-                <h2 data-animation="animated bounceInDown"><span>Give a little change a lot</span></h2>
-                <h3 data-animation="animated bounceInDown">consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.!</h3>
-                <h4 data-animation="animated bounceInUp"><a href="about-us.html">READ MORE</a></h4>
+                <h2 data-animation="animated bounceInDown" style="font-size: 50px;"><span>Bantu mereka tetap
+                        tersenyum</span></h2>
+                <h3 data-animation="animated bounceInDown">Donasi Anda dapat membantu mewujudkan mimpi anak-anak di
+                    Indonesia. Bantuan yang Anda berikan akan membawa perubahan dan mempengaruhi kehidupan anak-anak
+                    untuk selamanya. Bersama-sama kita mampu membuat dunia menjadi tempat yang lebih baik untuk
+                    anak-anak</h3>
+                <h4 data-animation="animated bounceInUp"><a href="{{url('/donasi')}}">Donasi Sekarang</a></h4>
             </div>
             <!-- Item 2 -->
             <div class="item slide2">
-                <h2 data-animation="animated bounceInDown"><span>More charity More better life</span></h2>
-                <h3 data-animation="animated bounceInDown">consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.!</h3>
-                <h4 data-animation="animated bounceInUp"><a href="about-us.html">READ MORE</a></h4>
+                <h2 data-animation="animated bounceInDown" style="font-size: 50px;"><span>Lebih banyak beramal hidup
+                        menjadi lebih baik</span></h2>
+                <h3 data-animation="animated bounceInDown">Kita tak perlu risau jika hak kita diambil orang, karena
+                    pasti akan dikembalikan Allah dalam bentuk yang lain. Tapi yang sangat ditakutkan bila kita
+                    mengambil hak orang lain, lalu amal kita menjadi tebusannya</h3>
+                <h4 data-animation="animated bounceInUp"><a href="{{url('/donasi')}}">Donasi Sekarang</a></h4>
             </div>
             <!-- Item 3 -->
             <div class="item slide3">
-                <h2 data-animation="animated bounceInDown"><span>Raise fund Warm heart</span></h2>
-                <h3 data-animation="animated bounceInDown">consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.!</h3>
-                <h4 data-animation="animated bounceInUp"><a href="about-us.html">READ MORE</a></h4>
+                <h2 data-animation="animated bounceInDown" style="font-size: 50px;"><span>Ringankan beban bangun kembali
+                        harapan</span>
+                </h2>
+                <h3 data-animation="animated bounceInDown">Donasi Anda dapat membantu mewujudkan mimpi anak-anak di
+                    Indonesia. Bantuan yang Anda berikan akan membawa perubahan dan mempengaruhi kehidupan anak-anak
+                    untuk selamanya. Bersama-sama kita mampu membuat dunia menjadi tempat yang lebih baik untuk
+                    anak-anak</h3>
+                <h4 data-animation="animated bounceInUp"><a href="{{url('/donasi')}}">Donasi Sekarang</a></h4>
             </div>
 
         </div>
@@ -52,22 +58,11 @@
         <div class="row text-center">
             <h1>TENTANG KITA BANTU</h1>
             <hr>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua.</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-                sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-                modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-                veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-                commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-                molestiae consequatur.</p>
+            <h5>Kami adalah lembaga Non Profit yang menghubungkan para donatur dengan mereka yang membutuhkan bantuan
+                baik berupa donasi materi atau aksi nyata</h5>
+            <p>Visi kami adalah menjadi lembaga filantrophy yang Profesional serta berpengaruh luas dalam dunia
+                kemnusiaan nasional dan global. Dengan misi menciptakan banyak project dan kesempatan kemanusiaan untuk
+                membantu orang lain dalam memperbaiki hidup dan kehidupan mereka.</p>
         </div>
     </div>
 </section>
@@ -75,45 +70,43 @@
 <section id="help">
     <div class="container">
         <div class="row text-center">
-            <h1>WAYS TO HELP</h1>
+            <h1>CARA MEMBANTU</h1>
             <hr>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua.</h5>
+            <h5>Anda dapat membantu mereka yang membutuhkan bantuan berupa uang atau relawan melalui platform ini dengan
+                cara sebagai berikut</h5>
             <div class="text-left">
                 <div class="col-md-6 clearfix top-off">
                     <div class="icon_circle"><i class="fa fa-heartbeat">&nbsp;</i></div>
                     <div class="help-text">
-                        <h4>Donate</h4>
+                        <h4>Berdonasi</h4>
                         <div class="line line-50"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
+                        <p>Anda dapat berdonasi berupa uang atau barang pada setiap kampanye yang ada di platform ini
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6 clearfix top-off">
                     <div class="icon_circle"><i class="fa fa-user-plus">&nbsp;</i></div>
                     <div class="help-text">
-                        <h4>Participate</h4>
+                        <h4>Relawan</h4>
                         <div class="line line-50"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
+                        <p>Anda dapat ikut menjadi relawan pada setiap kampanye yang ada di platform ini</p>
                     </div>
                 </div>
                 <div class="col-md-6 clearfix top-off">
                     <div class="icon_circle"><i class="fa fa-usd">&nbsp;</i></div>
                     <div class="help-text">
-                        <h4>Fundraise</h4>
+                        <h4>Galang Dana</h4>
                         <div class="line line-50"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
+                        <p>Anda dapat mengalang dana untuk membantu saudara kita yang membutuhkan bantuan sehingga dapat 
+                        meringankan beban mereka</p>
                     </div>
                 </div>
                 <div class="col-md-6 clearfix top-off">
-                    <div class="icon_circle"><i class="fa fa-credit-card">&nbsp;</i></div>
+                    <div class="icon_circle"><i class="fa fa-users">&nbsp;</i></div>
                     <div class="help-text">
-                        <h4>Contribute</h4>
+                        <h4>Buat Gerakan</h4>
                         <div class="line line-50"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut labore et dolore magna aliqua.</p>
+                        <p>Anda dapat membuat kampanye yang nantinya membutuhkan relawan untuk menjalankan aksi kemanusiaan</p>
                     </div>
                 </div>
             </div>
@@ -124,10 +117,9 @@
 <section id="video-sec">
     <div class="container">
         <div class="row text-center">
-            <h1>How can you help?</h1>
+            <h1>BAGAIMANA ANDA DAPAT MEMBANTU?</h1>
             <hr>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua.</h5>
+            <h5>Anda dapat membantu dengan:</h5>
             <div class="text-left">
                 <div class="col-md-6 clearfix top-off">
                     <video width="400" controls>
@@ -140,8 +132,8 @@
                             <img src="{{asset('utama/images/g1.png')}}" class="attachment-full size-full" alt="g1">
                         </div>
                         <div class="media-text">
-                            <h5>BECOME A VOLUNTEER</h5>
-                            <p>Give us a brief description of the service that you are promoting.</p>
+                            <h5>MENJADI RELAWAN</h5>
+                            <p>Menjadi relawan pada setiap kampanye</p>
                         </div>
                     </div>
                     <div class="media">
@@ -149,8 +141,8 @@
                             <img src="{{asset('utama/images/g2.png')}}" class="attachment-full size-full" alt="g1">
                         </div>
                         <div class="media-text">
-                            <h5>MAKE A GIFT</h5>
-                            <p>Give us a brief description of the service that you are promoting.</p>
+                            <h5>BERI HADIAH</h5>
+                            <p>Anda dapat memberikan barang yang berarti untuk mereka</p>
                         </div>
                     </div>
                     <div class="media">
@@ -158,8 +150,8 @@
                             <img src="{{asset('utama/images/g1.png')}}" class="attachment-full size-full" alt="g1">
                         </div>
                         <div class="media-text">
-                            <h5>GIVE A SCHOLASHIP</h5>
-                            <p>Give us a brief description of the service that you are promoting.</p>
+                            <h5>BERI BANTUAN</h5>
+                            <p>Memberi bantuan kepada mereka yang membutuhkan bantuan</p>
                         </div>
                     </div>
                 </div>
@@ -171,21 +163,21 @@
 <section id="projects-sec">
     <div class="container">
         <div class="row text-center">
-            <h1>OUR PROJECTS</h1>
+            <h1>PROYEK KAMI</h1>
             <hr>
             <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                 et dolore magna aliqua.</h5>
             <div class="text-center">
                 @foreach($donasi as $data)
                 <div class="col-md-4 clearfix top-off">
-                    <div class="grid-image"><img src="{{Storage::url('public/donasi/'.$data->foto)}}" height="200px"></div>
+                    <div class="grid-image"><img src="{{Storage::url('public/donasi/'.$data->foto)}}" height="200px">
+                    </div>
                     <div class="post-content">
                         <h3>{{$data->judul}}</h3>
                         <div class="progress" style="margin-top: 15px; height: 10px;">
                             <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
                                 aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <p style="padding-bottom: 15px;">Lorem ipsum dolor sit amet, sed do eiusmod tempor</p>
                         <table width="100%">
                             <tr>
                                 <td align="left" valign="top">
@@ -211,7 +203,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h2>Change Their World. Change Yours. This changes everything.</h2><!-- /.callout-title -->
+                <h2>Apakah anda ingin membantu orang lain didaerah anda?</h2><!-- /.callout-title -->
             </div><!-- /.columns large-6 -->
 
             <div class="col-md-6">
