@@ -97,8 +97,8 @@
                     <div class="help-text">
                         <h4>Galang Dana</h4>
                         <div class="line line-50"></div>
-                        <p>Anda dapat mengalang dana untuk membantu saudara kita yang membutuhkan bantuan sehingga dapat 
-                        meringankan beban mereka</p>
+                        <p>Anda dapat mengalang dana untuk membantu saudara kita yang membutuhkan bantuan sehingga dapat
+                            meringankan beban mereka</p>
                     </div>
                 </div>
                 <div class="col-md-6 clearfix top-off">
@@ -106,7 +106,8 @@
                     <div class="help-text">
                         <h4>Buat Gerakan</h4>
                         <div class="line line-50"></div>
-                        <p>Anda dapat membuat kampanye yang nantinya membutuhkan relawan untuk menjalankan aksi kemanusiaan</p>
+                        <p>Anda dapat membuat kampanye yang nantinya membutuhkan relawan untuk menjalankan aksi
+                            kemanusiaan</p>
                     </div>
                 </div>
             </div>
@@ -165,8 +166,8 @@
         <div class="row text-center">
             <h1>PROYEK KAMI</h1>
             <hr>
-            <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua.</h5>
+            <h5>Sisihkan sedikit harta yang kita miliki untuk membantu mereka yang membutuhkan, sedikit bantuan kita
+                sangat berarti bagi mereka!</h5>
             <div class="text-center">
                 @foreach($donasi as $data)
                 <div class="col-md-4 clearfix top-off">
