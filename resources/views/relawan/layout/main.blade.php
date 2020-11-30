@@ -83,7 +83,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <li><a href="{{url('/')}}">Home</a></li>
                         <li><a href="{{url('/donasi')}}">Donasi</a></li>
                         <li><a href="{{url('/acara')}}">Acara</a></li>
+                        @if(Auth::check())
                         <li><a href="{{url('/kontribusi')}}">Kontribusi Saya</a></li>
+                        @else
+                        <li><a href="{{url('/login')}}">Kontribusi Saya</a></li>
+                        @endif
                         <li><a href="{{url('/kontak')}}">Contact Us</a></li>
                     </ul>
                 </div>

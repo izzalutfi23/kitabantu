@@ -44,7 +44,7 @@
                 <div class="my-2 d-flex justify-content-between align-items-center">
                 </div>
                 <div class="text-center mt-4 font-weight-light">
-                  Belum punya akun? <a href="register.html" class="text-primary">Create</a>
+                  Belum punya akun? <a href="{{url('/pilihakun')}}" class="text-primary">Create</a>
                 </div>
               </form>
             </div>

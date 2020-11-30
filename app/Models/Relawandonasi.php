@@ -11,4 +11,9 @@ class Relawandonasi extends Model
 
     protected $table = 'relawan_donasi';
     protected $fillable = ['id_user', 'id_donasi', 'jml_uang', 'barang', 'harapan'];
+    protected $primaryKey = 'id';
+
+    public function donasi(){
+        return $this->belongsTo('App\Models\Donasimodel', 'id_donasi', 'id');
+    }
 }

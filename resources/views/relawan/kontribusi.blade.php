@@ -25,23 +25,25 @@
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>No</th>
+                    <th>Nama Donasi</th>
+                    <th>Jumlah Donasi (Rp)</th>
+                    <th>Donasi Barang</th>
+                    <th>Harapan</th>
+                    <th>Tanggal Donasi</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($donasi as $datadonasi)
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td><a href="{{url('/donasi/detail/'.$datadonasi->donasi->id)}}"><u>{{$datadonasi->donasi->judul}}</u></a></td>
+                    <td>Rp{{number_format($datadonasi->jml_uang)}}</td>
+                    <td>{{$datadonasi->barang}}</td>
+                    <td>{{$datadonasi->harapan}}</td>
+                    <td>{{date('d M Y', strtotime($datadonasi->created_at))}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>
@@ -53,26 +55,33 @@
             <h1>DAFTAR RELAWAN ACARA</h1>
             <hr>
         </div>
+        <p>*User secara resmi menjadi relawan dalam suatu acara jika statusnya 'Diterima'</p><br>
         <table id="example1" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
+                    <th>No</th>
+                    <th>Nama Acara</th>
+                    <th>Status</th>
+                    <th>Harapan</th>
+                    <th>Tanggal Daftar</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($acara as $dataacara)
                 <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>{{$loop->iteration}}</td>
+                    <td><a href="{{url('/acara/detail/'.$dataacara->acara->id)}}"><u>{{$dataacara->acara->judul}}</u></a></td>
+                    <td>
+                        @if($dataacara->status==0)
+                        <label class="badge badge-danger">Pengajuan</i></label>
+                        @else
+                        <label class="badge badge-danger">Diterima</i></label>
+                        @endif
+                    </td>
+                    <td>{{$dataacara->harapan}}</td>
+                    <td>{{date('d M Y', strtotime($dataacara->created_at))}}</td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

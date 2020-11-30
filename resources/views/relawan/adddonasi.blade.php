@@ -33,19 +33,19 @@
                         <div class="col-md-6">
                             <input type="hidden" name="id_user" value="{{Auth()->user()->id}}">
                             <input type="hidden" name="id_donasi" value="{{$donasi->id}}">
-                            <input type="text" name="name" value="{{$donasi->organisasi->name}}" size="40" class=""
+                            <input type="text" name="name" value="{{Auth()->user()->name}}" size="40" class=""
                                 aria-required="true" aria-invalid="false" placeholder="Nama*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="username" value="{{$donasi->organisasi->username}}" size="40"
+                            <input type="text" name="username" value="{{Auth()->user()->username}}" size="40"
                                 class="" aria-required="true" aria-invalid="false" placeholder="Username*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="no_telepon" value="{{$donasi->organisasi->email}}" size="40"
+                            <input type="text" name="no_telepon" value="{{Auth()->user()->email}}" size="40"
                                 class="" aria-invalid="false" placeholder="No Telepon*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="Email" value="{{$donasi->organisasi->kota->name}}" size="40"
+                            <input type="text" name="Email" value="{{Auth()->user()->kota->name}}" size="40"
                                 class="" aria-invalid="false" placeholder="Alamat Email*">
                         </div>
                         <div class="col-md-6">

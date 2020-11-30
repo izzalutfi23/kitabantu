@@ -11,4 +11,8 @@ class Relawanacara extends Model
 
     protected $table = 'relawan_acara';
     protected $fillable = ['id_user', 'id_acara', 'status', 'harapan'];
+
+    public function acara(){
+        return $this->belongsTo('App\Models\Acaramodel', 'id_acara', 'id');
+    }
 }

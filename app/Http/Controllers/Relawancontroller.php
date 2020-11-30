@@ -13,18 +13,20 @@ class Relawancontroller extends Controller
 {
     // Halaman awal
     public function index(){
-        $donasi = Donasimodel::offset(0)->limit(3)->orderBy('id', 'DESC')->get();
+        $donasi = Donasimodel::where('status', 'aktif')->offset(0)->limit(3)->orderBy('id', 'DESC')->get();
         return view('relawan.index', ['donasi' => $donasi]);
     }
 
     // Halaman kontribusi
     public function kontribusi(){
-        return view('relawan.kontribusi');
+        $acara = Relawanacara::where('id_user', Auth()->user()->id)->get();
+        $donasi = Relawandonasi::where('id_user', Auth()->user()->id)->get();
+        return view('relawan.kontribusi', ['donasi' => $donasi, 'acara' => $acara]);
     }
 
     // Halaman donasi
     public function donasi(){
-        $donasi = Donasimodel::orderBy('id', 'DESC')->get();
+        $donasi = Donasimodel::where('status', 'aktif')->orderBy('id', 'DESC')->get();
         return view('relawan.donasi', ['donasi' => $donasi]);
     }
 
@@ -53,7 +55,7 @@ class Relawancontroller extends Controller
 
     // Halaman acara
     public function acara(){
-        $acara = Acaramodel::orderBy('id', 'DESC')->get();
+        $acara = Acaramodel::where('status', 'aktif')->orderBy('id', 'DESC')->get();
         return view('relawan.acara', ['acara' => $acara]);
     }
 
