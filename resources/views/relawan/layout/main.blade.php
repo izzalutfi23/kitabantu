@@ -104,12 +104,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="row">
                     <div class="col-md-3">
                         <div class="footer-section">
-                            <h4 class="footer-section-title">About Charity</h4><!-- /.footer-section-title -->
+                            <h4 class="footer-section-title">Tentang Kitabantu</h4><!-- /.footer-section-title -->
 
                             <div class="footer-section-body">
-                                <p>Charity vitae diam pulvinar, tempus dia aliquam tellus. Quisque mattis odio eu
-                                    placerat luctus. Vivamus magna elit, ultrices non lacinia vel, tempor vitae tell
-                                    Fusce sit amet sem sit amet.</p>
+                                <p>Visi kami adalah menjadi lembaga filantrophy yang Profesional serta berpengaruh luas
+                                    dalam dunia
+                                    kemnusiaan nasional dan global. Dengan misi menciptakan banyak project dan
+                                    kesempatan kemanusiaan untuk
+                                    membantu orang lain dalam memperbaiki hidup dan kehidupan mereka.</p>
                             </div><!-- /.footer-section-body -->
                         </div><!-- /.footer-section -->
                     </div><!-- /.columns large-3 medium-12 -->
@@ -125,22 +127,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </li>
 
                                     <li>
-                                        <a href="about-us.html">About Us</a>
+                                        <a href="about-us.html">Donasi</a>
                                     </li>
 
                                     <li>
-                                        <a href="activities.html">Activities</a>
+                                        <a href="activities.html">Acara</a>
                                     </li>
                                     <li>
-                                        <a href="projects.html">Projects</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="gallery.html">Gallery</a>
+                                        <a href="projects.html">Kontribusi Saya</a>
                                     </li>
 
                                     <li>
-                                        <a href="contact.html">Contact Us</a>
+                                        <a href="gallery.html">Kontak</a>
                                     </li>
 
                                 </ul><!-- /.list-links -->
@@ -175,7 +173,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <h4 class="footer-section-title">Contact Us</h4><!-- /.footer-section-title -->
 
                             <div class="footer-section-body">
-                                <p><b>Address:</b> 3104 Doctors Drive, Los Angeles, California, United States</p>
+                                <p><b>Address:</b> Jl. Imam Bonjol No.207, Pendrikan Kidul, Kec. Semarang Tengah, Kota
+                                    Semarang, Jawa Tengah 50131</p>
 
                                 <div class="footer-contacts">
                                     <p>
@@ -183,7 +182,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             <i class="fa fa-phone"></i> Phone:
                                         </b>
 
-                                        +1-310-341-3870
+                                        +62-852-1053-9260
                                     </p>
 
                                     <p>
@@ -191,7 +190,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                             <i class="fa fa-envelope-o"></i> Email:
                                         </b>
 
-                                        info@charityhope.com
+                                        info@kitabantu.com
                                     </p>
                                 </div><!-- /.footer-contacts -->
                             </div><!-- /.footer-section-body -->
@@ -276,6 +275,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 });
             });
         });
+
     </script>
     <script src="js/script.js"></script>
 </body>
