@@ -84,7 +84,7 @@
                         <div class="well well-sm">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <img src="{{asset('utama/images/user/profil.jpeg')}}" alt=""
+                                    <img src="{{Storage::url('public/user/'.$donasi->organisasi->foto)}}" alt=""
                                         class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-6 col-md-8">
@@ -102,25 +102,31 @@
                         </div>
                     </div>
                 </div>
+                <!-- Hitung persen -->
+                @php
+                    $jml_bagian = $donasi->r_donasi()->sum('jml_uang');
+                    $total_keseluruhan = $donasi->target;
+                    $persen = ($jml_bagian*100)/$total_keseluruhan;
+                @endphp
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="well well-sm" style="margin-top: 20px;">
                             <table width="100%">
                                 <tr>
                                     <td align="left" valign="top">
-                                        <h4>Rp100,000</h4>
-                                        <p style="font-size: 12px;">Terkumpul dari Rp10,000,000</p>
+                                        <h4>Rp{{number_format($donasi->r_donasi()->sum('jml_uang'))}}</h4>
+                                        <p style="font-size: 12px;">Terkumpul dari Rp{{number_format($donasi->target)}}</p>
                                     </td>
                                     <td align="right" valign="top">
-                                        <h5>20%</h5>
+                                        <h5>{{ceil($persen)}}%</h5>
                                     </td>
                                 </tr>
                             </table>
                             <div class="progress" style="margin-top: 15px; height: 10px;">
-                                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
+                                <div class="progress-bar" role="progressbar" style="width: {{ceil($persen)}}%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p style="font-size: 12px;">Dari 2 Donasi</p>
+                            <p style="font-size: 12px;">Dari {{$donasi->r_donasi()->count('id')}} Donasi</p>
                         </div>
                     </div>
                 </div>
