@@ -35,7 +35,7 @@
                         <div class="well well-sm">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <img src="{{asset('utama/images/user/profil.jpeg')}}" alt="" class="img-rounded img-responsive" />
+                                    <img src="{{Storage::url('public/user/'.$acara->organisasi->foto)}}" alt="" class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-6 col-md-8">
                                     <h4>{{$acara->organisasi->name}}</h4>
@@ -60,25 +60,30 @@
                     <a href="{{url('/login')}}"><button class="btn btn-success donasi">Ikut Berpartisipasi</button></a>
                 @endif
                         <button class="sponsor-button waktu"><i class="fa fa-clock-o"></i> 3 Hari lagi</button>
+                @php
+                    $jml_bagian = $acara->r_acara_count;
+                    $total_keseluruhan = $acara->target;
+                    $persen = ($jml_bagian*100)/$total_keseluruhan;
+                @endphp
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="well well-sm" style="margin-top: 20px;">
                             <table width="100%">
                                 <tr>
                                     <td align="left" valign="top">
-                                        <h4>2 Orang</h4>
-                                        <p style="font-size: 12px;">Terkumpul dari target 20 orang</p>
+                                        <h4>{{$acara->r_acara_count}} Orang</h4>
+                                        <p style="font-size: 12px;">Terkumpul dari target {{$acara->target}} orang</p>
                                     </td>
                                     <td align="right" valign="top">
-                                        <h5>20%</h5>
+                                        <h5>{{ceil($persen)}}%</h5>
                                     </td>
                                 </tr>
                             </table>
                             <div class="progress" style="margin-top: 15px; height: 10px;">
-                                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
+                                <div class="progress-bar" role="progressbar" style="width: {{ceil($persen)}}%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p style="font-size: 12px;">2 Partisipan</p>
+                            <p style="font-size: 12px;">{{$acara->r_acara_count}} Partisipan</p>
                         </div>
                     </div>
                 </div>

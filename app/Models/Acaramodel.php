@@ -18,6 +18,11 @@ class Acaramodel extends Model
         return $this->belongsTo('App\Models\Desa', 'id_kelurahan', 'id');
     }
 
+    public function r_acara()
+    {
+        return $this->hasMany('App\Models\Relawanacara', 'id_acara', 'id');
+    }
+
     public function kecamatan(){
         return $this->belongsTo('App\Models\Kecamatan', 'id_kecamatan', 'id');
     }

@@ -76,7 +76,7 @@
                                         </td>
                                         <td>{{$data->kelurahan->name.', '.$data->kecamatan->name.', '.$data->kota->name.', '.$data->provinsi->name}}</td>
                                         <td>{{number_format($data->target)}} Orang</td>
-                                        <td>0 Orang</td>
+                                        <td>{{$data->r_acara()->count('id')}} Orang</td>
                                         <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
                                         <td><label class="badge badge-danger">{{$data->status}}</label></td>
                                         <td>

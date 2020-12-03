@@ -55,18 +55,28 @@ class Relawancontroller extends Controller
 
     // Halaman acara
     public function acara(){
-        $acara = Acaramodel::where('status', 'aktif')->orderBy('id', 'DESC')->get();
+        $acara = Acaramodel::where('status', 'aktif')->orderBy('id', 'DESC')->withCount(['r_acara' => function($q){
+            $q->where('status', 1);
+        }])->with('organisasi')->get();
         return view('relawan.acara', ['acara' => $acara]);
+        // return $acara;
     }
 
     // Detail acara
     public function detailacara(Acaramodel $acaramodel){
-        return view('relawan.detailacara', ['acara' => $acaramodel]);
+        $acara = Acaramodel::whereId($acaramodel->id)->withCount(['r_acara' => function($q){
+            $q->where('status', 1);
+        }])->with('organisasi')->first();
+        // return $acara;
+        return view('relawan.detailacara', ['acara' => $acara]);
     }
 
     // Input acara
     public function inputacara(Acaramodel $acaramodel){
-        return view('relawan.addacara', ['acara' => $acaramodel]);
+        $acara = Acaramodel::whereId($acaramodel->id)->withCount(['r_acara' => function($q){
+            $q->where('status', 1);
+        }])->with('organisasi')->first();
+        return view('relawan.addacara', ['acara' => $acara]);
     }
 
     // Insert acara

@@ -33,19 +33,19 @@
                         <div class="col-md-6">
                             <input type="hidden" name="id_user" value="{{Auth()->user()->id}}">
                             <input type="hidden" name="id_acara" value="{{$acara->id}}">
-                            <input type="text" name="name" value="{{$acara->organisasi->name}}" size="40" class=""
+                            <input type="text" name="name" value="{{Auth()->user()->name}}" size="40" class=""
                                 aria-required="true" aria-invalid="false" placeholder="Nama*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="username" value="{{$acara->organisasi->username}}" size="40"
+                            <input type="text" name="username" value="{{Auth()->user()->username}}" size="40"
                                 class="" aria-required="true" aria-invalid="false" placeholder="Username*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="email" value="{{$acara->organisasi->email}}" size="40" class=""
+                            <input type="text" name="email" value="{{Auth()->user()->email}}" size="40" class=""
                                 aria-invalid="false" placeholder="No Telepon*">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" name="kota" value="{{$acara->organisasi->kota->name}}" size="40" class=""
+                            <input type="text" name="kota" value="{{Auth()->user()->kota->name}}" size="40" class=""
                                 aria-invalid="false" placeholder="Alamat Email*">
                         </div>
                         <div class="col-md-12">
@@ -75,39 +75,44 @@
                         <div class="well well-sm">
                             <div class="row">
                                 <div class="col-sm-6 col-md-4">
-                                    <img src="{{asset('utama/images/user/profil.jpeg')}}" alt=""
+                                    <img src="{{Storage::url('public/user/'.$acara->organisasi->foto)}}" alt=""
                                         class="img-rounded img-responsive" />
                                 </div>
                                 <div class="col-sm-6 col-md-8">
                                     <h4>
                                         Bhaumik Patel</h4>
-                                    <small><cite title="San Francisco, USA">San Francisco, USA <i
+                                    <small><cite title="San Francisco, USA">{{$acara->organisasi->kota->name.', '.$acara->organisasi->provinsi->name}} <i
                                                 class="glyphicon glyphicon-map-marker">
                                             </i></cite></small>
                                     <p>
                                         Dibuat pada tanggal<br>
-                                        <i class="fa fa-calendar"></i> June 02, 1988</p>
+                                        <i class="fa fa-calendar"></i> {{date('d M Y', strtotime($acara->created_at))}}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @php
+                    $jml_bagian = $acara->r_acara_count;
+                    $total_keseluruhan = $acara->target;
+                    $persen = ($jml_bagian*100)/$total_keseluruhan;
+                @endphp
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="well well-sm" style="margin-top: 20px;">
                             <table width="100%">
                                 <tr>
                                     <td align="left" valign="top">
-                                        <h4>Rp100,000</h4>
-                                        <p style="font-size: 12px;">Terkumpul dari Rp10,000,000</p>
+                                        <h4>{{$acara->r_acara_count}} Orang</h4>
+                                        <p style="font-size: 12px;">Terkumpul dari target {{$acara->target}} orang</p>
                                     </td>
                                     <td align="right" valign="top">
-                                        <h5>20%</h5>
+                                        <h5>{{ceil($persen)}}%</h5>
                                     </td>
                                 </tr>
                             </table>
                             <div class="progress" style="margin-top: 15px; height: 10px;">
-                                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="25"
+                                <div class="progress-bar" role="progressbar" style="width: {{ceil($persen)}}%" aria-valuenow="25"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <p style="font-size: 12px;">Dari 2 Donasi</p>
