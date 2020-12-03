@@ -26,7 +26,7 @@ class Relawancontroller extends Controller
 
     // Halaman donasi
     public function donasi(){
-        $donasi = Donasimodel::where('status', 'aktif')->orderBy('id', 'DESC')->get();
+        $donasi = Donasimodel::where('status', 'aktif')->orderBy('id', 'DESC')->withCount('r_donasi')->get();
         return view('relawan.donasi', ['donasi' => $donasi]);
     }
 

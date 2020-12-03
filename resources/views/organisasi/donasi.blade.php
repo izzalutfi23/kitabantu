@@ -73,7 +73,7 @@
                                         <td>{{$data->judul}}</td>
                                         <td>{{substr(strip_tags(htmlspecialchars_decode($data->keterangan)), 0, 10)}}...</td>
                                         <td>Rp{{number_format($data->target)}}</td>
-                                        <td>Rp0</td>
+                                        <td>Rp{{number_format($data->r_donasi()->sum('jml_uang'))}}</td>
                                         <td>{{date('d M Y', strtotime($data->batas_waktu))}}</td>
                                         <td><label class="badge badge-danger">{{$data->status}}</label></td>
                                         <td>

@@ -182,8 +182,8 @@
                         <table width="100%">
                             <tr>
                                 <td align="left" valign="top">
-                                    <h4>Rp100,000</h4>
-                                    <p style="font-size: 12px;">Terkumpul dari Rp10,000,000</p>
+                                    <h4>Rp{{number_format($data->r_donasi()->sum('jml_uang'))}}</h4>
+                                    <p style="font-size: 12px;">Terkumpul dari Rp{{number_format($data->target)}}</p>
                                 </td>
                                 <td align="right" valign="top">
                                     <h5>20%</h5>

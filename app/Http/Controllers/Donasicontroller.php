@@ -16,8 +16,12 @@ class Donasicontroller extends Controller
      */
     public function index()
     {
-        $donasi = Donasimodel::where('id_user', Auth()->user()->id)->get();
+        // $donasi = Donasimodel::where('id_user', Auth()->user()->id)->withCount(['r_donasi AS tot_donasi' => function($q){
+        //     $q->select(Relawandonasi::raw("SUM(jml_uang) as tot_donasi"));
+        // }])->withCount('r_donasi')->get();
+        $donasi = Donasimodel::where('id_user', Auth()->user()->id)->withCount('r_donasi')->get();
         return view('organisasi.donasi', ['donasi' => $donasi]);
+        // return $donasi;
     }
 
     /**

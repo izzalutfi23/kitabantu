@@ -16,4 +16,9 @@ class Donasimodel extends Model
     public function organisasi(){
         return $this->belongsTo('App\Models\User', 'id_user', 'id');
     }
+
+    public function r_donasi()
+    {
+        return $this->hasMany('App\Models\Relawandonasi', 'id_donasi', 'id');
+    }
 }
