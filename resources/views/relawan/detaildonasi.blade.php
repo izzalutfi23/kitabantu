@@ -24,7 +24,7 @@
                 <img class="img-fluid" src="{{Storage::url('public/donasi/'.$donasi->foto)}}" width="100%" alt="">
                 <div class="blog_details">
                     <h2>{{$donasi->judul}}</h2>
-                    {{$donasi->keterangan}}
+                    {!! $donasi->keterangan !!}
                 </div>
             </div>
 

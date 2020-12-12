@@ -24,7 +24,7 @@
                 <img class="img-fluid" src="{{Storage::url('public/acara/'.$acara->foto)}}" width="100%" alt="">
                 <div class="blog_details">
                     <h2>{{$acara->judul}}</h2>
-                    {{$acara->keterangan}}
+                    {!! $acara->keterangan !!}
                     <p>Lokasi : {{$acara->kelurahan->name.', '.$acara->kecamatan->name.', '.$acara->kota->name.', '.$acara->provinsi->name}}</p>
                 </div>
             </div>
