@@ -5,12 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Donasimodel;
 use App\Models\Acaramodel;
+use App\Models\Relawandonasi;
+use App\Models\Relawanacara;
 
 class Admincontroller extends Controller
 {
     // Menampilkan halaman admin
     public function index(){
-        return view('admin/index');
+        $donasi = Donasimodel::all();
+        $acara = Acaramodel::all();
+        $rdonasi = Relawandonasi::all();
+        $racara = Relawanacara::all();
+        $data = [
+            'acara' => $acara,
+            'donasi' => $donasi,
+            'racara' => $racara,
+            'rdonasi' => $rdonasi
+        ];
+        return view('admin/index', $data);
     }
 
     // Menampilkan halaman admin menu donasi
