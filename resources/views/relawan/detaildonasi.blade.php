@@ -63,8 +63,16 @@
                     $jml_bagian = $donasi->r_donasi()->sum('jml_uang');
                     $total_keseluruhan = $donasi->target;
                     $persen = ($jml_bagian*100)/$total_keseluruhan;
+                    $buat = date('Y-m-d');
+                    $batas = $donasi->batas_waktu;
+
+                    $diff = abs(strtotime($buat) - strtotime($batas));
+                    $years = floor($diff / (365*60*60*24));
+                    $months = floor(($diff - $years * 365*60*60*24) / (30*60*60*24));
+                    $days = floor(($diff - $years * 365*60*60*24 - $months*30*60*60*24)/ (60*60*24));
+                    
                 @endphp
-                <button class="sponsor-button waktu"><i class="fa fa-clock-o"></i> 3 Hari lagi</button>
+                <button class="sponsor-button waktu"><i class="fa fa-clock-o"></i> {{$years.' Tahun, '.$months.' Bulan, '.$days.' Hari lagi'}}</button>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="well well-sm" style="margin-top: 20px;">
